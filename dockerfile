@@ -12,6 +12,8 @@ RUN bundle install
 COPY files/ ./files
 COPY wsdl_validator.rb validator.rb ./
 
+ENV FILE=message-correct.xml
+
 VOLUME [ "/input" ]
 
-CMD ["./validator.rb", "/input/message.xml"]
+CMD ["sh", "-c", "./validator.rb /input/${FILE}"]

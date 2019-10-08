@@ -10,8 +10,6 @@ Copy `/files` and `/input` to the `soap-validator` folder
 
 ## Run container
 
-Rename `./input/message-correct.xml` to `./input/message.xml` to see the test PASS
+Run `docker run -v <absolute-path-to-input-folder>/input:/input -it soap-validator` to see the test pass using a correct xml file
 
-Or rename `./input/message-error.xml` to `./input/message.xml` to see the test FAIL
-
-Then run: `docker run -v <absolute-path-to-input-folder>/input:/input -it soap-validator`
+Or run `docker run -v <absolute-path-to-input-folder>/input:/input -it -e FILE='message-error.xml' soap-validator` to see the test FAIL
